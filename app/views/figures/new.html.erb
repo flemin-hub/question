@@ -1,0 +1,20 @@
+<div class="main posts-show">
+  <div class="container">
+    <div class="posts-show-item">
+      <%= @post.content %>
+      
+      
+    </div>
+    
+    <div class="posts-show-item">
+
+      
+      
+      <%= pie_chart @data,  library: { legend: { position: "left", labels: { fontSize: 26, fontColor: "white" } } } %>
+    </div>
+    
+    
+    
+
+  </div>
+</div>

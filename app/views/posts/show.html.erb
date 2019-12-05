@@ -12,12 +12,12 @@
      <div class="form">
       <div class="form-body1">
           
-      <%= form_tag("/posts/create") do %>
-        <input type="submit" value="Yes">
+      <%= form_tag("/posts/#{@post.id}/yes_create") do %>
+        <input type="submit" name="post_id" value="Yes">
       <% end %>
       
-      <%= form_tag("/posts/create") do %>
-        <input type="submit" value="No">
+      <%= form_tag("/posts/#{@post.id}/no_create") do %>
+        <input type="submit" name="post_id" value="No">
       <% end %>
       
       </div>

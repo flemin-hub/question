@@ -1,0 +1,2 @@
+class Disagree < ApplicationRecord
+end

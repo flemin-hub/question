@@ -1,0 +1,2 @@
+class Agree < ApplicationRecord
+end
