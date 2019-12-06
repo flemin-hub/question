@@ -8,11 +8,13 @@
     
     <div class="posts-show-item">
 
-      
-      
+
       <%= pie_chart @data,  library: { legend: { position: "left", labels: { fontSize: 26, fontColor: "white" } } } %>
     </div>
     
+    <div class="post-menus">
+      <%= link_to("リセット", "/posts/#{@post.id}/result/destroy",{method: "post"}) %>
+    </div>
     
     
 
