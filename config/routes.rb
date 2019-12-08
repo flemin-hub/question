@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   post "posts/:id/yes_create" => "figures#yes_create"
   post "posts/:id/no_create" => "figures#no_create"
   post "posts/:id/destroy" => "posts#destroy"
+  post "posts/:id/result/destroy" => "figures#destroy"
   
   get "/" => "home#top"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

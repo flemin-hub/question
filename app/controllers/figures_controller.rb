@@ -26,4 +26,13 @@ class FiguresController < ApplicationController
       redirect_to("/posts/#{@post.id}/result")
     end
     
+    def destroy
+      @post = Post.find_by(id: params[:id])
+      @agree = Agree.where(post_id: @post.id).destroy_all
+      @disagree = Disagree.where(post_id: @post.id).destroy_all
+      
+
+      redirect_to("/posts/#{@post.id}/result")
+    end
+    
 end
