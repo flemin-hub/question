@@ -20,5 +20,13 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  def admin_user
+    unless @current_user.admin?
+      flash[:notice] = "権限がありません"
+      redirect_to("/posts/index")
+    
+    end
+  end
+  
   
 end

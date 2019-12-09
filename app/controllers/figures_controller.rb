@@ -1,4 +1,6 @@
 class FiguresController < ApplicationController
+  
+    before_action :admin_user2, {only: [:destroy]}
     
     
     def new
@@ -34,5 +36,14 @@ class FiguresController < ApplicationController
 
       redirect_to("/posts/#{@post.id}/result")
     end
+    
+  def admin_user2
+    @post = Post.find_by(id: params[:id])
+    unless @current_user.admin?
+      flash[:notice] = "権限がありません"
+      redirect_to("/posts/#{@post.id}/result")
+    
+    end
+  end
     
 end
