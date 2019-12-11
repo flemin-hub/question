@@ -9,6 +9,8 @@ class PostsController < ApplicationController
   
   def show
     @post = Post.find_by(id: params[:id])
+    @agree = Agree.find_by(user_id: @current_user.id, post_id: @post.id)
+    @disagree = Disagree.new(post_id: @post.id, user_id: @current_user.id)
   end
   
   def new

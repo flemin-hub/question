@@ -25,13 +25,19 @@
         
       </div>
     </div>
+    <% unless @current_user.admin? %>
     <div class="form-heading">アカウント情報の削除はこちら</div>
     <div class="form-body1">
+      
+      
       
       <%= form_tag("/users/#{@user.id}/destroy") do %>
       <input type="submit" value="削除">
       <% end %>
       
+      
     </div>
+    <% end %>
   </div>
+    
 </div>

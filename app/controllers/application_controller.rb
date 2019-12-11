@@ -28,5 +28,12 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  def forbid_admin_user
+      if @current_user.admin?
+          flash[:notice] = "管理者は実行できません"
+          redirect_to("/posts/index")
+      end
+  end
+  
   
 end

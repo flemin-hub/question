@@ -2,21 +2,22 @@
   <div class="container">
     <div class="posts-show-item">
       <%= @post.content %>
-      
-      
     </div>
     
     <div class="posts-show-item">
+      <%= @message %>
+    </div>
+   
+    <div class="posts-show-item">
 
-      
-      
       <%= pie_chart @data,  library: { legend: { position: "left", labels: { fontSize: 26, fontColor: "white" } } } %>
     </div>
     
+    <% if @current_user.admin? %>
     <div class="post-menus">
       <%= link_to("リセット", "/posts/#{@post.id}/result/destroy",{method: "post"}) %>
     </div>
-    
+    <% end %>
     
     
 

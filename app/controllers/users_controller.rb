@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   before_action :ensure_correct_user, {only: [:edit, :update]}
   
   before_action :admin_user, {only: [:index]}
+  before_action :forbid_admin_user, {only: [:destroy]}
   
   def index
     @users = User.all

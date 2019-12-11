@@ -5,24 +5,35 @@
     </div>
     
     
-    <div class="post-menus">
-      <%= link_to("削除", "/posts/#{@post.id}/destroy",{method: "post"}) %>
-    </div>
-    
      <div class="form">
       <div class="form-body1">
-          
+        
+      <% if @agree || @disagree %>  
+      <div class="form-body2">回答済みです</div>
+      
+      <% else %>
       <%= form_tag("/posts/#{@post.id}/yes_create") do %>
         <input type="submit" name="post_id" value="Yes">
       <% end %>
+      
       
       <%= form_tag("/posts/#{@post.id}/no_create") do %>
         <input type="submit" name="post_id" value="No">
       <% end %>
       
+      <% end %>
       </div>
     </div>
     
+    <div class="post-menus">
+      <%= link_to("結果を表示する", "/posts/#{@post.id}/result") %>
+    </div>
+    
+    <% if @current_user.admin? %>
+    <div class="post-menus">
+      <%= link_to("削除", "/posts/#{@post.id}/destroy",{method: "post"}) %>
+    </div>
+    <% end %>
     
     
   </div>

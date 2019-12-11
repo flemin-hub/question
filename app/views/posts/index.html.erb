@@ -2,7 +2,11 @@
   <div class="container">
     <% @posts.each do |post| %>
       <div class="posts-index-item">
+        <% unless @current_user.admin? %>
         <%= link_to(post.content, "/posts/#{post.id}") %>
+        <% else %>
+        <%= link_to(post.content, "/posts/#{post.id}/result") %>
+        <% end %>
     
       </div>
     <% end %>
